@@ -37,7 +37,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY','django-insecure--c5^7scrb7x-r9p
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['https:invoicecreate.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['invoicecreate.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
