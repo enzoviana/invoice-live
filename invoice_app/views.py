@@ -66,7 +66,7 @@ def login(request):
             return redirect('dashboard')
         else:
             context['form'] = form
-            messages.error(request, 'Invalid Credentials')
+            messages.error(request, 'Mot de passe ou User erroner')
             return redirect('login')
 
 
@@ -117,7 +117,7 @@ def clients(request):
             messages.success(request, 'Nouveau Client Ajouter')
             return redirect('clients')
         else:
-            messages.error(request, 'Problem processing your request')
+            messages.error(request, 'Un probleme est survenu')
             return redirect('clients')
 
 
@@ -150,7 +150,7 @@ def createBuildInvoice(request, slug):
         invoice = Invoice.objects.get(slug=slug)
         pass
     except:
-        messages.error(request, 'Something went wrong')
+        messages.error(request, 'Un probleme est survenu')
         return redirect('invoices')
 
     #fetch all the products - related to this invoice
@@ -180,23 +180,23 @@ def createBuildInvoice(request, slug):
             obj.invoice = invoice
             obj.save()
 
-            messages.success(request, "Invoice product added succesfully")
+            messages.success(request, "Produit ajouter ")
             return redirect('create-build-invoice', slug=slug)
         elif inv_form.is_valid and 'paymentTerms' in request.POST:
             inv_form.save()
 
-            messages.success(request, "Invoice updated succesfully")
+            messages.success(request, "Devis mis a jours")
             return redirect('create-build-invoice', slug=slug)
         elif client_form.is_valid() and 'client' in request.POST:
 
             client_form.save()
-            messages.success(request, "Client added to invoice succesfully")
+            messages.success(request, "Client ajouter au devis")
             return redirect('create-build-invoice', slug=slug)
         else:
             context['prod_form'] = prod_form
             context['inv_form'] = inv_form
             context['client_form'] = client_form
-            messages.error(request,"Problem processing your request")
+            messages.error(request,"Un probleme est survenu")
             return render(request, 'invoice/create-invoice.html', context)
 
 
@@ -210,14 +210,14 @@ def viewPDFInvoice(request, slug):
         invoice = Invoice.objects.get(slug=slug)
         pass
     except:
-        messages.error(request, 'Something went wrong')
+        messages.error(request, 'Un probleme est survenu')
         return redirect('invoices')
 
     #fetch all the products - related to this invoice
     products = Product.objects.filter(invoice=invoice)
 
     #Get Client Settings
-    p_settings = Settings.objects.get(clientName='Enzo Viana')
+    p_settings = Settings.objects.get(clientName='animprod')
 
     #Calculate the Invoice Total
     invoiceCurrency = ''
@@ -249,14 +249,14 @@ def viewDocumentInvoice(request, slug):
         invoice = Invoice.objects.get(slug=slug)
         pass
     except:
-        messages.error(request, 'Something went wrong')
+        messages.error(request, 'Un probleme est survenu')
         return redirect('invoices')
 
     #fetch all the products - related to this invoice
     products = Product.objects.filter(invoice=invoice)
 
     #Get Client Settings
-    p_settings = Settings.objects.get(clientName='Enzo Viana')
+    p_settings = Settings.objects.get(clientName='animprod')
 
     #Calculate the Invoice Total
     invoiceTotal = 0.0
