@@ -328,7 +328,7 @@ def emailDocumentInvoice(request, slug):
     products = Product.objects.filter(invoice=invoice)
 
     #Get Client Settings
-    p_settings = Settings.objects.get(clientName='Enzo Viana')
+    p_settings = Settings.objects.get(clientName='Animprod')
 
     #Calculate the Invoice Total
     invoiceTotal = 0.0
@@ -404,6 +404,6 @@ def deleteInvoice(request, slug):
 
 
 def companySettings(request):
-    company = Settings.objects.get(clientName='Enzo Viana')
+    company = Settings.objects.get(clientName='Animprod')
     context = {'company': company}
     return render(request, 'invoice/company-settings.html', context)
