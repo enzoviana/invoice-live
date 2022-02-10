@@ -217,7 +217,7 @@ def viewPDFInvoice(request, slug):
     products = Product.objects.filter(invoice=invoice)
 
     #Get Client Settings
-    p_settings = Settings.objects.get(clientName='animprod')
+    p_settings = Settings.objects.get(clientName='Animprod')
 
     #Calculate the Invoice Total
     invoiceCurrency = ''
@@ -256,7 +256,7 @@ def viewDocumentInvoice(request, slug):
     products = Product.objects.filter(invoice=invoice)
 
     #Get Client Settings
-    p_settings = Settings.objects.get(clientName='animprod')
+    p_settings = Settings.objects.get(clientName='Animprod')
 
     #Calculate the Invoice Total
     invoiceTotal = 0.0
