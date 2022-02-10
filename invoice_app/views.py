@@ -229,10 +229,12 @@ def viewPDFInvoice(request, slug):
             invoiceCurrency = x.currency
 
     Taxe = round(invoiceTotal * 1.20, 2)
+    Taxdetail = round(invoiceTotal * 0.20, 2)
 
 
     context = {}
     context['invoice'] = invoice
+    context['Taxdetail'] = Taxdetail
     context['Taxe'] = Taxe
     context['products'] = products
     context['p_settings'] = p_settings
@@ -387,7 +389,7 @@ def emailDocumentInvoice(request, slug):
     invoice.save()
 
     #Email was send, redirect back to view - invoice
-    messages.success(request, "Email sent to the client succesfully")
+    messages.success(request, "Email envoyer au client")
     return redirect('create-build-invoice', slug=slug)
 
 
@@ -395,7 +397,7 @@ def deleteInvoice(request, slug):
     try:
         Invoice.objects.get(slug=slug).delete()
     except:
-        messages.error(request, 'Something went wrong')
+        messages.error(request, 'Une erreur est survenue')
         return redirect('invoices')
 
     return redirect('invoices')
