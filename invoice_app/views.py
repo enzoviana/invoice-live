@@ -401,6 +401,16 @@ def deleteInvoice(request, slug):
         return redirect('invoices')
 
     return redirect('invoices')
+   
+  
+def deleteClient(request, slug):
+    try:
+        Client.objects.get(slug=slug).delete()
+    except:
+        messages.error(request, 'Une erreur est survenue')
+        return redirect('clients')
+
+    return redirect('clients')
 
 
 
