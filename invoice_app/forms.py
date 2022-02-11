@@ -29,7 +29,7 @@ class UserLoginForm(forms.ModelForm):
 class ClientForm(forms.ModelForm):
     class Meta:
         model = Client
-        fields = ['Nom Client', 'client Logo', 'addresse', 'departement', 'code postal', 'numero', 'Email', 'numero Tax']
+        fields = ['clientName', 'clientLogo', 'addressLine1', 'province', 'postalCode', 'phoneNumber', 'emailAddress', 'taxNumber']
 
 
 
