@@ -17,7 +17,7 @@ path('invoices/create-build/<slug:slug>',views.createBuildInvoice, name='create-
   
 #Delete an invoice
 path('invoices/delete/<slug:slug>',views.deleteInvoice, name='delete-invoice'),
-
+path('client/delete/<slug:slug>',views.deleteClient, name='delete-client'),
 
 #PDF and EMAIL Paths
 path('invoices/view-pdf/<slug:slug>',views.viewPDFInvoice, name='view-pdf-invoice'),
