@@ -301,7 +301,7 @@ def viewDocumentInvoice(request, slug):
       #Javascript delay is optional
 
     #Remember that location to wkhtmltopdf
-    config = pdfkit.configuration(wkhtmltopdf='/usr/local/bin/wkhtmltopdf')
+    config = pdfkit.configuration(wkhtmltopdf='/app/bin/wkhtmltopdf')
 
     #IF you have CSS to add to template
     css1 = os.path.join(settings.CSS_LOCATION, 'assets', 'css', 'bootstrap.min.css')
