@@ -268,11 +268,13 @@ def viewDocumentInvoice(request, slug):
             invoiceTotal += y
 
     Taxe = round(invoiceTotal * 1.20, 2)
+    Taxdetail = round(invoiceTotal * 0.20, 2)
 
 
 
     context = {}
     context['Taxe'] = Taxe
+    context['Taxdetail'] = Taxdetail
     context['invoice'] = invoice
     context['products'] = products
     context['p_settings'] = p_settings
