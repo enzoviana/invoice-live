@@ -123,12 +123,18 @@ class Product(models.Model):
     ('€', 'EUR'),
     ('$', 'USD'),
     ]
+    
+    TVA = [
+        ('20%', 'TVA'),
+        ('5.5%', 'TVA'),
+    ]
 
     title = models.CharField(null=True, blank=True, max_length=100)
     description = models.TextField(null=True, blank=True)
     quantity = models.FloatField(null=True, blank=True)
     price = models.FloatField(null=True, blank=True)
     currency = models.CharField(choices=CURRENCY, default='€', max_length=100)
+    tva = models.CharField(choices=TVA, default='20%', max_length=100)
 
 
     invoice =models.ForeignKey(Invoice, blank=True, null=True, on_delete=models.CASCADE)
