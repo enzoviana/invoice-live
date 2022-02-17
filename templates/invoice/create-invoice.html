@@ -35,13 +35,9 @@
 
         <div class="row">
                     <div class="col-lg-12">
-            <form class="" action="#" method="post">
-              {% csrf_token %}
-  
-              {{product_form|crispy}}
-  
-              <button type="submit" class="btn btn-primary">Ajout un Produit</button>
-            </form>
+            <h5 class="card-title">Ajouter un Produit 
+              <button href="#addProductModal" type="button" class="btn btn-link" data-bs-toggle="modal"> ajout produit </button>
+            </h5>
 
             {% if products|length > 0 %}
             <div class="table-responsive">
