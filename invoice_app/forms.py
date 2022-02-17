@@ -132,3 +132,35 @@ class ClientSelectForm(forms.ModelForm):
             return self.initial_client
         else:
             return Client.objects.get(uniqueId=c_client)
+        
+class ProductSelectForm(forms.ModelForm):
+
+    def __init__(self,*args,**kwargs):
+        self.initial_client = kwargs.pop('initial_client')
+        self.PRODUCT_LIST = Product.objects.all()
+        self.PRODUCT_CHOICES = [('-----', '--Selectionner un Produit--')]
+
+
+        for product in self.PRODUCT_LIST:
+            d_t = (product.uniqueId, product.clientName)
+            self.PRODUCT_CHOICES.append(d_t)
+
+
+        super(ProductSelectForm,self).__init__(*args,**kwargs)
+
+        self.fields['products'] = forms.ChoiceField(
+                                        label='Selectioner un Produit',
+                                        choices = self.PRODUCT_CHOICES,
+                                        widget=forms.Select(attrs={'class': 'form-control mb-3'}),)
+
+    class Meta:
+        model = Invoice
+        fields = ['product']
+
+
+    def clean_product(self):
+        c_product = self.cleaned_data['product']
+        if c_product == '-----':
+            return self.initial_product
+        else:
+            return Product.objects.get(uniqueId=c_product)
