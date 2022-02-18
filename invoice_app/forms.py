@@ -36,7 +36,7 @@ class ClientForm(forms.ModelForm):
 class ProductForm(forms.ModelForm):
     class Meta:
         model = Product
-        fields = ['title', 'description', 'quantity', 'price', 'currency', 'tva']
+        fields = ['title', 'description', 'quantity', 'price', 'currency']
 
 
 class InvoiceForm(forms.ModelForm):
