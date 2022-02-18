@@ -125,8 +125,8 @@ class Product(models.Model):
     ]
     
     TVA = [
-        ('20%', 'TVA'),
-        ('5.5%', 'TVA'),
+        ('20%'),
+        ('5.5%'),
     ]
 
     title = models.CharField(null=True, blank=True, max_length=100)
