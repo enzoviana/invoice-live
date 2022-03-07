@@ -346,8 +346,8 @@ def emailDocumentInvoice(request, slug):
 
 
     context = {}
-    context['Taxe'] = invoice
-    context['Totality'] = invoice
+    context['Taxe'] = Taxe
+    context['Totality'] = Totality
     context['invoice'] = invoice
     context['products'] = products
     context['p_settings'] = p_settings
