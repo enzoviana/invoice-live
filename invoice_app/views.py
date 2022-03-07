@@ -228,13 +228,13 @@ def viewPDFInvoice(request, slug):
             invoiceTotal += y
             invoiceCurrency = x.currency
 
-    Taxe = round(invoiceTotal * 1.20, 2)
-    Taxdetail = round(invoiceTotal * 0.20, 2)
+    Taxe = round(invoiceTotal * 0.20, 2)
+    Totality = round(Taxe + invoiceTotal)
 
 
     context = {}
     context['invoice'] = invoice
-    context['Taxdetail'] = Taxdetail
+    context['Totality'] = Totality
     context['Taxe'] = Taxe
     context['products'] = products
     context['p_settings'] = p_settings
@@ -267,14 +267,14 @@ def viewDocumentInvoice(request, slug):
             y = float(x.quantity) * float(x.price)
             invoiceTotal += y
 
-    Taxe = round(invoiceTotal * 1.20, 2)
-    Taxdetail = round(invoiceTotal * 0.20, 2)
+    Taxe = round(invoiceTotal * 0.20, 2)
+    Totality = round(Taxe + invoiceTotal)
 
 
 
     context = {}
     context['Taxe'] = Taxe
-    context['Taxdetail'] = Taxdetail
+    context['Totality'] = Taxdetail
     context['invoice'] = invoice
     context['products'] = products
     context['p_settings'] = p_settings
