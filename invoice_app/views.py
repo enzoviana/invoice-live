@@ -274,7 +274,7 @@ def viewDocumentInvoice(request, slug):
 
     context = {}
     context['Taxe'] = Taxe
-    context['Totality'] = Taxdetail
+    context['Totality'] = Totality
     context['invoice'] = invoice
     context['products'] = products
     context['p_settings'] = p_settings
