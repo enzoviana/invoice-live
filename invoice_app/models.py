@@ -165,9 +165,14 @@ class Product(models.Model):
 class Settings(models.Model):
 
     PROVINCES = [
-    ('Gauteng', 'Gauteng'),
-    ('Free State', 'Free State'),
-    ('Limpopo', 'Limpopo'),
+    ('Paris', 'Paris'),
+    ('Seine-et-Marne', 'Seine-et-Marne'),
+    ('Yvelines', 'Yvelines'),
+    ('Essonne ', 'Essonne '),
+    ('Hauts-de-Seine', 'Hauts-de-Seine'),
+    ('Seine-Saint-Denis', 'Seine-Saint-Denis'),
+    ('Val-de-Marne', 'Val-de-Marne'),
+    ('Val-d\'Oise', "Val-d\'Oise"),
     ]
 
     #Basic Fields
