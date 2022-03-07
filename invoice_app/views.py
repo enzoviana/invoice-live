@@ -340,10 +340,14 @@ def emailDocumentInvoice(request, slug):
         for x in products:
             y = float(x.quantity) * float(x.price)
             invoiceTotal += y
+    Taxe = round(invoiceTotal * 0.20, 2)
+    Totality = round(Taxe + invoiceTotal)
 
 
 
     context = {}
+    context['Taxe'] = invoice
+    context['Totality'] = invoice
     context['invoice'] = invoice
     context['products'] = products
     context['p_settings'] = p_settings
