@@ -35,7 +35,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY','django-insecure--c5^7scrb7x-r9p8!imz8y!t*f%pnr9fe!$#xd1@q_3z@2v5va')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['invoicecreate.herokuapp.com','devisgenerator.herokuapp.com', '127.0.0.1']
 
